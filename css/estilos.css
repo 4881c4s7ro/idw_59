@@ -143,6 +143,28 @@ th {
     
 }
 
+.avisos {
+   display: flex;
+    margin:auto;
+     /*grid-template-columns: repeat(3, 1fr);
+    gap: 25px;*/
+    max-width: 800px;
+    padding: 20px 0;
+    justify-content: center;
+    border: 2px solid rgb(41, 61, 240); /* Ancho, Estilo y Color del borde */
+    padding: 10px; /* Opcional: añade espacio dentro del borde */
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+}
+
+.avisos > ul {
+    list-style:decimal;
+    list-style-type: decimal-leading-zero;
+font-size:x-large;}
+
+.avisos > p {
+    font-size:xx-large;
+}
 
 .formulario > div {
    
@@ -162,6 +184,7 @@ th {
 }
 .medicos{
     display: grid;
+    margin:auto;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     max-width: 1000px;

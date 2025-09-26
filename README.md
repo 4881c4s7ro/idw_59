@@ -8,5 +8,5 @@ GRUPO 59:
          Tadeo Perez
          Nicolas Testa
 link1: https://github.com/4881c4s7ro/idw_59
-link2: 
+link2:  https://4881c4s7ro.github.io/idw_59/
          

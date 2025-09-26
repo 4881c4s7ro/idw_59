@@ -7,4 +7,6 @@ GRUPO 59:
          Elizabeth Ruth Flores (hizo la entrega y abandono al grupo)
          Tadeo Perez
          Nicolas Testa
+link1: https://github.com/4881c4s7ro/idw_59
+link2: 
          

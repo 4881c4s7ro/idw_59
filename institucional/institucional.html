@@ -1,118 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Clínica Salud y Vida - Institucional</title>
-    <link rel="stylesheet" href="../css/styles.css">
+  <meta charset="UTF-8" />
+  <title>Clínica Salud y Vida - Institucional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <style>
+    body.dark-mode {
+      background-color: #121212 !important;
+      color: #e0e0e0 !important;
+    }
+    body.dark-mode .bg-light {
+      background-color: #1e1e1e !important;
+    }
+    body.dark-mode .bg-white {
+      background-color: #1e1e1e !important;
+    }
+    body.dark-mode .navbar-light {
+      background-color: #1e1e1e !important;
+    }
+    body.dark-mode .card {
+      background-color: #2c2c2c;
+      color: #e0e0e0;
+      border-color: #444;
+    }
+    body.dark-mode .card .card-title,
+    body.dark-mode .card .card-text,
+    body.dark-mode .navbar-brand,
+    body.dark-mode .nav-link {
+      color: #bb86fc !important;
+    }
+    body.dark-mode .nav-link.active {
+      color: #3700b3 !important;
+      font-weight: bold;
+    }
+    #darkModeToggle {
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      font-size: 1.25rem;
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <h1>Clínica Salud y Vida</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../institucional/institucional.html">Institucional</a></li>
-                <li><a href="../contacto/contacto.html">Contacto</a></li>
-                 <li><a href="../turnos/turnos.html">Turnos</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-light">
 
-    <main>
-        <!-- Historia -->
-        <section>
-            <h2>Nuestra Historia</h2>
-            <p>La Clínica Salud y Vida fue fundada en el año 2000 con el objetivo de brindar atención médica de calidad. 
-            A lo largo de más de dos décadas nos hemos consolidado como un centro de referencia en la región, creciendo en infraestructura, profesionales y servicios.</p>
-        </section>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand text-primary fw-bold" href="../index.html">Clínica Salud y Vida</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <!-- Misión, visión y valores -->
-        <section>
-            <h2>Misión, Visión y Valores</h2>
-            <h3>Misión</h3>
-            <p>Brindar atención médica integral y humanizada, promoviendo la salud, prevención y tratamiento oportuno con el mejor equipo profesional y tecnológico.</p>
-            
-            <h3>Visión</h3>
-            <p>Ser reconocidos como la clínica líder de la región en innovación médica y calidad de servicio, garantizando siempre el bienestar de nuestros pacientes.</p>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="../institucional/institucional.html">Institucional</a></li>
+          <li class="nav-item"><a class="nav-link" href="../contacto/contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="../turnos/turnos.html">Turnos</a></li>
+          <li class="nav-item ms-3">
+            <button id="darkModeToggle" aria-label="Toggle dark mode" title="Modo oscuro">🌙</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-            <h3>Valores</h3>
-            <ul>
-                <li>Compromiso con el bienestar de nuestros pacientes.</li>
-                <li>Atención personalizada y humana.</li>
-                <li>Uso de tecnología moderna en diagnósticos y tratamientos.</li>
-                <li>Ética, transparencia y responsabilidad social.</li>
-                <li>Trabajo en equipo y mejora continua.</li>
-            </ul>
-        </section>
+  <main class="container my-5">
+    <section>
+      <h2 class="text-primary mb-4">Nuestra Clínica</h2>
 
-        <!-- Nuestro equipo -->
-        <section>
-            <h2>Nuestro Equipo</h2>
-            <p>Contamos con más de 50 profesionales de distintas especialidades, capacitados en las mejores universidades y con constante formación continua.</p>
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h3 class="card-title text-primary">Quiénes Somos</h3>
+          <p class="card-text">
+            La Clínica Salud y Vida es un centro médico dedicado a brindar atención de calidad y calidez a todos nuestros pacientes. Fundada en el año 2000, contamos con un equipo multidisciplinario de profesionales comprometidos con la salud y el bienestar.
+          </p>
+        </div>
+      </div>
 
-            <!-- Contenedor de cards -->
-            <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:20px;">
-                
-                <!-- Card 1 -->
-                <div style="width:200px; background:white; border-radius:10px; box-shadow:0 3px 8px rgba(0,0,0,0.1); text-align:center; padding:15px;">
-                    <img src="../img/doctor1.jpg" alt="Dr. Ricardo Fernández" style="width:100%; height:200px; object-fit:cover; border-radius:10px;">
-                    <h3 style="margin:10px 0 5px; font-size:1.1em;">Dr. Ricardo Fernández</h3>
-                    <p style="margin:0; font-size:0.9em; color:#555;">Dirección Médica</p>
-                </div>
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-primary">Nuestra Misión</h3>
+          <p class="card-text">
+            Proveer servicios médicos integrales que promuevan una mejor calidad de vida, mediante tecnología avanzada y un trato humano.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-                <!-- Card 2 -->
-                <div style="width:200px; background:white; border-radius:10px; box-shadow:0 3px 8px rgba(0,0,0,0.1); text-align:center; padding:15px;">
-                    <img src="../img/doctor2.jpg" alt="Dra. Ana Pérez" style="width:100%; height:200px; object-fit:cover; border-radius:10px;">
-                    <h3 style="margin:10px 0 5px; font-size:1.1em;">Dra. Ana Pérez</h3>
-                    <p style="margin:0; font-size:0.9em; color:#555;">Jefa de Pediatría</p>
-                </div>
+  <footer class="bg-white text-center py-3 shadow-sm mt-5">
+    <p class="mb-0">&copy; 2025 Clínica Salud y Vida - Todos los derechos reservados</p>
+  </footer>
 
-                <!-- Card 3 -->
-                <div style="width:200px; background:white; border-radius:10px; box-shadow:0 3px 8px rgba(0,0,0,0.1); text-align:center; padding:15px;">
-                    <img src="../img/doctor3.jpg" alt="Dr. Juan López" style="width:100%; height:200px; object-fit:cover; border-radius:10px;">
-                    <h3 style="margin:10px 0 5px; font-size:1.1em;">Dr. Juan López</h3>
-                    <p style="margin:0; font-size:0.9em; color:#555;">Jefe de Cardiología</p>
-                </div>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-                <!-- Card 4 -->
-                <div style="width:200px; background:white; border-radius:10px; box-shadow:0 3px 8px rgba(0,0,0,0.1); text-align:center; padding:15px;">
-                    <img src="../img/doctor4.jpg" alt="Dra. Lautaro Gómez" style="width:100%; height:200px; object-fit:cover; border-radius:10px;">
-                    <h3 style="margin:10px 0 5px; font-size:1.1em;">Dr. Lautaro Gómez</h3>
-                    <p style="margin:0; font-size:0.9em; color:#555;">Jefa de Ginecología</p>
-                </div>
+  <script>
+    const toggleButton = document.getElementById('darkModeToggle');
+    const body = document.body;
 
-            </div>
-        </section>
+    if(localStorage.getItem('darkMode') === 'enabled'){
+      body.classList.add('dark-mode');
+      toggleButton.textContent = '☀️';
+    }
 
-        <!-- Infraestructura -->
-        <section>
-            <h2>Nuestra Infraestructura</h2>
-            <p>La clínica cuenta con modernas instalaciones para brindar una atención segura y eficiente:</p>
-            <ul>
-                <li>20 consultorios médicos equipados.</li>
-                <li>Laboratorio de análisis clínicos de alta complejidad.</li>
-                <li>Unidad de diagnóstico por imágenes con tomógrafo y resonador.</li>
-                <li>Quirófanos de última generación.</li>
-                <li>Área de internación con habitaciones privadas y confortables.</li>
-                <li>Guardia activa las 24 horas, los 365 días del año.</li>
-            </ul>
-            <img src="../img/clinica.jpg" alt="Foto de la clínica" width="100%" height="auto" style="max-height:500px; display:block; margin-top:15px; border-radius:8px;">
-        </section>
-
-        <!-- Reconocimientos -->
-        <section>
-            <h2>Certificaciones y Reconocimientos</h2>
-            <p>A lo largo de los años hemos recibido distintos reconocimientos:</p>
-            <ul>
-                <li>Certificación ISO 9001 en gestión de calidad (2018).</li>
-                <li>Premio Nacional a la Innovación en Salud (2021).</li>
-                <li>Clínica recomendada por la Asociación Médica Nacional (2023).</li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Clínica Salud y Vida - Todos los derechos reservados</p>
-    </footer>
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if(body.classList.contains('dark-mode')){
+        toggleButton.textContent = '☀️';
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        toggleButton.textContent = '🌙';
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
+  </script>
 </body>
 </html>

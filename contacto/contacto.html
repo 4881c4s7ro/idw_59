@@ -1,59 +1,187 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Clínica Salud y Vida - Contacto</title>
-    <link rel="stylesheet" href="../css/styles.css">
+  <meta charset="UTF-8" />
+  <title>Clínica Salud y Vida - Contacto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <style>
+    body.dark-mode {
+      background-color: #121212 !important;
+      color: #e0e0e0 !important;
+    }
+    body.dark-mode .bg-light {
+      background-color: #1e1e1e !important;
+    }
+    body.dark-mode .bg-white {
+      background-color: #1e1e1e !important;
+    }
+    body.dark-mode .navbar-light {
+      background-color: #1e1e1e !important;
+    }
+    body.dark-mode .form-control,
+    body.dark-mode textarea {
+      background-color: #2c2c2c;
+      color: #e0e0e0;
+      border-color: #444;
+    }
+    body.dark-mode .form-control::placeholder {
+      color: #bbb;
+    }
+    body.dark-mode button.btn-primary {
+      background-color: #6200ee;
+      border-color: #6200ee;
+    }
+    body.dark-mode button.btn-primary:hover {
+      background-color: #3700b3;
+      border-color: #3700b3;
+    }
+    body.dark-mode .navbar-brand,
+    body.dark-mode .nav-link {
+      color: #bb86fc !important;
+    }
+    body.dark-mode .nav-link.active {
+      color: #3700b3 !important;
+      font-weight: bold;
+    }
+    #darkModeToggle {
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      font-size: 1.25rem;
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <h1>Clínica Salud y Vida</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../institucional/institucional.html">Institucional</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="../turnos/turnos.html">Turnos</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-light">
 
-    <main style="max-width:1000px; margin:20px auto; padding:20px; background:white; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-        <h2>Contacto</h2>
-        <p><strong>Dirección:</strong> Calle Falsa 123, Ciudad</p>
-        <p><strong>Teléfono:</strong> (123) 456-789</p>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand text-primary fw-bold" href="../index.html">Clínica Salud y Vida</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div style="display:flex; flex-direction:column; gap:30px;">
-            <!-- Formulario -->
-            <div style="flex:1; min-width:300px;">
-                <h3>Formulario de Contacto</h3>
-                <form>
-                    <label for="nombre">Nombre:</label><br>
-                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required><br><br>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="../institucional/institucional.html">Institucional</a></li>
+          <li class="nav-item"><a class="nav-link active" href="../contacto/contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="../turnos/turnos.html">Turnos</a></li>
+          <li class="nav-item ms-3">
+            <button id="darkModeToggle" aria-label="Toggle dark mode" title="Modo oscuro">🌙</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-                    <label for="email">Correo electrónico:</label><br>
-                    <input type="email" id="email" name="email" placeholder="Tu email" required><br><br>
+  <main class="container my-5">
+    <h2 class="text-primary mb-4">Contacto</h2>
+    <p><strong>Dirección:</strong> Calle Falsa 123, Ciudad</p>
+    <p><strong>Teléfono:</strong> (123) 456-789</p>
 
-                    <label for="mensaje">Mensaje:</label><br>
-                    <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí" rows="6" required></textarea><br><br>
+    <div class="row g-4 mt-4">
+      <div class="col-md-6">
+        <h3>Formulario de Contacto</h3>
+        <form>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nombre"
+              name="nombre"
+              placeholder="Tu nombre"
+              required
+            />
+          </div>
 
-                    <button type="submit" style="background:#006699; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; font-weight:bold; transition:0.3s;">Enviar</button>
-                </form>
-            </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico:</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="Tu email"
+              required
+            />
+          </div>
 
-            <!-- Mapa -->
-            <div style="flex:1; min-width:300px;">
-                <h3>Nuestra Ubicación</h3>
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.123456789!2d-58.38159268477541!3d-34.60372218045979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccabc1234567%3A0xabcdef1234567890!2sCalle+Falsa+123%2C+Ciudad!5e0!3m2!1ses!2sar!4v1694160000000!5m2!1ses!2sar" 
-                    width="100%" height="400" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </div>
-    </main>
+          <div class="mb-3">
+            <label for="mensaje" class="form-label">Mensaje:</label>
+            <textarea
+              class="form-control"
+              id="mensaje"
+              name="mensaje"
+              placeholder="Escribe tu mensaje aquí"
+              rows="6"
+              required
+            ></textarea>
+          </div>
 
-    <footer style="background:#006699; color:white; text-align:center; padding:15px 0; margin-top:20px;">
-        <p>&copy; 2025 Clínica Salud y Vida</p>
-    </footer>
+          <button
+            type="submit"
+            class="btn btn-primary fw-bold"
+          >
+            Enviar
+          </button>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <h3>Nuestra Ubicación</h3>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.123456789!2d-58.38159268477541!3d-34.60372218045979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccabc1234567%3A0xabcdef1234567890!2sCalle+Falsa+123%2C+Ciudad!5e0!3m2!1ses!2sar!4v1694160000000!5m2!1ses!2sar"
+          width="100%"
+          height="400"
+          style="border:0; border-radius:10px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-white text-center py-3 shadow-sm mt-5">
+    <p class="mb-0">&copy; 2025 Clínica Salud y Vida - Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const toggleButton = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    if(localStorage.getItem('darkMode') === 'enabled'){
+      body.classList.add('dark-mode');
+      toggleButton.textContent = '☀️';
+    }
+
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if(body.classList.contains('dark-mode')){
+        toggleButton.textContent = '☀️';
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        toggleButton.textContent = '🌙';
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
+  </script>
 </body>
 </html>
+

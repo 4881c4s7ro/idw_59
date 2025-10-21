@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Administrar Médicos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container my-5">
+    <h1 class="text-primary mb-4">Administrar Médicos</h1>
+
+    <!-- Formulario moderno dentro de una tarjeta -->
+    <div class="card p-4 shadow-sm mb-5">
+      <h2 class="card-title text-primary mb-4">Agregar / Actualizar Médico</h2>
+
+      <form id="formMedico" onsubmit="actualizarMedico(event)">
+        <input type="hidden" id="medicoId">
+
+        <div class="row g-3">
+          <!-- Nombre -->
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="text" id="nombre" class="form-control" placeholder="Nombre del médico" required>
+              <label for="nombre">Nombre del médico</label>
+            </div>
+          </div>
+
+          <!-- Especialidad -->
+          <div class="col-md-6">
+            <div class="form-floating">
+              <select id="especialidad" class="form-select" required>
+                <option value="" disabled selected>Seleccione una especialidad</option>
+              </select>
+              <label for="especialidad">Especialidad</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 d-flex justify-content-end">
+          <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Tabla de Médicos -->
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th>Foto</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaMedicos"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script type="module" src="../assets/js/medicos.js"></script>
+</body>
+</html>

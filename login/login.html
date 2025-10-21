@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - Clínica Salud y Vida</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .login-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 400px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .login-title {
+      color: #007bff;
+      font-weight: 700;
+    }
+
+    .form-control {
+      border-radius: 10px;
+    }
+
+    .btn-primary {
+      border-radius: 10px;
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    }
+
+    #mensaje {
+      min-height: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h3 class="text-center login-title mb-4">Iniciar Sesión</h3>
+
+    <form id="formLogin">
+      <div class="mb-3">
+        <label for="usuario" class="form-label">Usuario</label>
+        <input type="text" id="usuario" class="form-control" placeholder="Ingrese su usuario" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="clave" class="form-label">Contraseña</label>
+        <input type="password" id="clave" class="form-control" placeholder="Ingrese su contraseña" required />
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 py-2">Ingresar</button>
+    </form>
+
+    <p id="mensaje" class="text-danger text-center mt-3"></p>
+  </div>
+
+  <script type="module">
+    import { login } from "../assets/js/auth.js";
+
+    const form = document.getElementById("formLogin");
+    const claveInput = document.getElementById("clave");
+
+    // Manejo del login
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const usuario = document.getElementById("usuario").value.trim();
+      const clave = claveInput.value.trim();
+      const mensaje = document.getElementById("mensaje");
+
+      if (login(usuario, clave)) {
+        mensaje.textContent = "";
+        window.location.href = "../index.html";
+      } else {
+        mensaje.textContent = "Usuario o contraseña incorrectos";
+      }
+    });
+  </script>
+</body>
+</html>

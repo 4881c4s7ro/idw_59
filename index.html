@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Bootstrap CSS -->
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+
   
   <style>
     /* Modo oscuro */
@@ -13,12 +16,8 @@
       background-color: #121212 !important;
       color: #e0e0e0 !important;
     }
-    body.dark-mode .bg-light {
-      background-color: #1e1e1e !important;
-    }
-    body.dark-mode .bg-white {
-      background-color: #1e1e1e !important;
-    }
+    body.dark-mode .bg-light,
+    body.dark-mode .bg-white,
     body.dark-mode .navbar-light {
       background-color: #1e1e1e !important;
     }
@@ -31,13 +30,12 @@
     body.dark-mode .card .card-text,
     body.dark-mode .navbar-brand,
     body.dark-mode .nav-link {
-      color: #bb86fc !important; /* color morado claro */
+      color: #bb86fc !important;
     }
     body.dark-mode .nav-link.active {
       color: #3700b3 !important;
       font-weight: bold;
     }
-    /* Botón toggle modo oscuro */
     #darkModeToggle {
       background: none;
       border: none;
@@ -89,46 +87,8 @@
     <section>
       <h2 class="text-primary mb-4">Nuestro Equipo de Profesionales</h2>
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-        <div class="col">
-          <div class="card shadow-sm rounded h-100">
-            <img src="img/doctor1.jpg" class="card-img-top rounded-top" alt="Dr. Ricardo Fernández" style="height: 200px; object-fit: cover;" />
-            <div class="card-body text-center">
-              <h5 class="card-title text-primary mb-1">Dr. Ricardo Fernández</h5>
-              <p class="card-text text-secondary mb-0">Dirección Médica</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card shadow-sm rounded h-100">
-            <img src="img/doctor2.jpg" class="card-img-top rounded-top" alt="Dra. Ana Pérez" style="height: 200px; object-fit: cover;" />
-            <div class="card-body text-center">
-              <h5 class="card-title text-primary mb-1">Dra. Ana Pérez</h5>
-              <p class="card-text text-secondary mb-0">Jefa de Pediatría</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card shadow-sm rounded h-100">
-            <img src="img/doctor3.jpg" class="card-img-top rounded-top" alt="Dr. Juan López" style="height: 200px; object-fit: cover;" />
-            <div class="card-body text-center">
-              <h5 class="card-title text-primary mb-1">Dr. Juan López</h5>
-              <p class="card-text text-secondary mb-0">Jefe de Cardiología</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card shadow-sm rounded h-100">
-            <img src="img/doctor4.jpg" class="card-img-top rounded-top" alt="Dr. Lautaro Gómez" style="height: 200px; object-fit: cover;" />
-            <div class="card-body text-center">
-              <h5 class="card-title text-primary mb-1">Dr. Lautaro Gómez</h5>
-              <p class="card-text text-secondary mb-0">Jefe de Ginecología</p>
-            </div>
-          </div>
-        </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="medicosContainer">
+        <!-- Médicos se cargarán dinámicamente desde LocalStorage -->
       </div>
     </section>
 
@@ -141,11 +101,38 @@
   <!-- Bootstrap JS -->
   <script src="assets/js/bootstrap.bundle.min.js"></script>
 
+  <!-- Inicialización de LocalStorage y carga de médicos -->
+  <script type="module">
+    import { inicializarStorage } from './assets/js/initStorage.js';
+
+    // Inicializa LocalStorage con médicos
+    inicializarStorage();
+
+    // Cargar médicos en el contenedor
+    const cargarMedicos = () => {
+      const contenedor = document.getElementById("medicosContainer");
+      const medicos = JSON.parse(localStorage.getItem("medicos")) || [];
+      contenedor.innerHTML = medicos.map(m => `
+        <div class="col">
+          <div class="card shadow-sm rounded h-100">
+            <img src="${m.foto}" class="card-img-top rounded-top" alt="${m.nombre}" style="height: 200px; object-fit: cover;" />
+            <div class="card-body text-center">
+              <h5 class="card-title text-primary mb-1">${m.nombre}</h5>
+              <p class="card-text text-secondary mb-0">${m.especialidad}</p>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    };
+
+    cargarMedicos();
+  </script>
+
+  <!-- Modo oscuro -->
   <script>
     const toggleButton = document.getElementById('darkModeToggle');
     const body = document.body;
 
-    // Cargar preferencia guardada
     if(localStorage.getItem('darkMode') === 'enabled'){
       body.classList.add('dark-mode');
       toggleButton.textContent = '☀️';
@@ -153,7 +140,6 @@
 
     toggleButton.addEventListener('click', () => {
       body.classList.toggle('dark-mode');
-
       if(body.classList.contains('dark-mode')){
         toggleButton.textContent = '☀️';
         localStorage.setItem('darkMode', 'enabled');
@@ -165,4 +151,3 @@
   </script>
 </body>
 </html>
-

@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Administrar Médicos</title>
+  <title>Usuarios DummyJSON</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -16,7 +16,8 @@
     body.dark-mode .navbar-light {
       background-color: #1e1e1e !important;
     }
-    body.dark-mode .card {
+    body.dark-mode .card, 
+    body.dark-mode .table {
       background-color: #2c2c2c;
       color: #e0e0e0;
       border-color: #444;
@@ -60,68 +61,67 @@
 
   <!-- Contenido principal -->
   <div class="container my-5">
-    <h1 class="text-primary mb-4">Administrar Médicos</h1>
+    <h1 class="text-primary mb-4">Usuarios Registrados</h1>
 
-
-            <div class="card p-4 shadow-sm mb-5">
-              <h2 class="card-title text-primary mb-4">Agregar / Actualizar Médico</h2>
-
-              <form id="formMedico" onsubmit="actualizarMedico(event)">
-                <input type="hidden" id="medicoId">
-
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <input type="text" id="nombre" class="form-control" placeholder="Nombre del médico" required>
-                      <label for="nombre">Nombre del médico</label>
-                    </div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <select id="especialidad" class="form-select" required>
-                        <option value="" disabled selected>Seleccione una especialidad</option>
-                      </select>
-                      <label for="especialidad">Especialidad</label>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="mt-4 d-flex justify-content-end">
-                  <button type="submit" class="btn btn-success">Guardar</button>
-                </div>
-              </form>
-            </div>
-
-    <!-- Tabla -->
     <div class="table-responsive">
-      <table class="table table-striped align-middle">
-        <thead>
+      <table class="table table-hover align-middle">
+        <thead class="table-primary">
           <tr>
             <th>ID</th>
-            <th>Nombre</th>
-            <th>Especialidad</th>
-            <th>Foto</th>
-            <th>Acciones</th>
+            <th>Usuario</th>
+            <th>Nombre Completo</th>
+            <th>Correo</th>
+            <th>Edad</th>
+            <th>Género</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
           </tr>
         </thead>
-        <tbody id="tablaMedicos"></tbody>
+        <tbody id="tablaUsuarios"></tbody>
       </table>
     </div>
   </div>
 
-
+  <!-- JS -->
   <script src="../assets/js/bootstrap.bundle.min.js"></script>
-  <script type="module" src="../assets/js/medicos.js"></script>
   <script type="module" src="../assets/js/navbar.js"></script>
 
- <script type="module">
-  import { estaLogeado } from "../assets/js/auth.js";
-  if (!estaLogeado()) {
-    window.location.href = "/login/login.html";
-  }
-</script>
+  <script type="module">
+    import { estaLogeado } from "../assets/js/auth.js";
+    
+    // Si no está logeado, redirige al login
+    if (!estaLogeado()) {
+      window.location.href = "/login/login.html";
+    }
 
+    // Función para cargar usuarios desde DummyJSON
+    const cargarUsuarios = async () => {
+      try {
+        const res = await fetch("https://dummyjson.com/users");
+        const datos = await res.json();
+
+        const tabla = document.getElementById("tablaUsuarios");
+        tabla.innerHTML = datos.users.map(u => `
+          <tr>
+            <td>${u.id}</td>
+            <td>${u.username}</td>
+            <td>${u.firstName} ${u.lastName}</td>
+            <td>${u.email}</td>
+            <td>${u.age}</td>
+            <td>${u.gender === "male" ? "Masculino" : "Femenino"}</td>
+            <td>${u.phone}</td>
+            <td>${u.address?.address || ""}, ${u.address?.city || ""}</td>
+          </tr>
+        `).join("");
+      } catch (error) {
+        console.error("Error al cargar usuarios:", error);
+      }
+    };
+
+    cargarUsuarios();
+  </script>
+
+  <!-- Dark Mode -->
   <script>
     const toggleButton = document.getElementById('darkModeToggle');
     const body = document.body;
@@ -140,7 +140,5 @@
       }
     });
   </script>
-
-
 </body>
 </html>

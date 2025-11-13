@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Administrar Médicos</title>
+  <title>Administrar Especialidades</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -60,38 +60,23 @@
 
   <!-- Contenido principal -->
   <div class="container my-5">
-    <h1 class="text-primary mb-4">Administrar Médicos</h1>
+    <h1 class="text-primary mb-4">Administrar Especialidades</h1>
 
+    <!-- Formulario -->
+    <div class="card p-4 shadow-sm mb-5">
+      <h2 class="card-title text-primary mb-4">Agregar / Editar Especialidad</h2>
 
-            <div class="card p-4 shadow-sm mb-5">
-              <h2 class="card-title text-primary mb-4">Agregar / Actualizar Médico</h2>
-
-              <form id="formMedico" onsubmit="actualizarMedico(event)">
-                <input type="hidden" id="medicoId">
-
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <input type="text" id="nombre" class="form-control" placeholder="Nombre del médico" required>
-                      <label for="nombre">Nombre del médico</label>
-                    </div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <select id="especialidad" class="form-select" required>
-                        <option value="" disabled selected>Seleccione una especialidad</option>
-                      </select>
-                      <label for="especialidad">Especialidad</label>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="mt-4 d-flex justify-content-end">
-                  <button type="submit" class="btn btn-success">Guardar</button>
-                </div>
-              </form>
-            </div>
+      <form id="formEspecialidad" onsubmit="actualizarEspecialidad(event)">
+        <input type="hidden" id="especialidadId">
+        <div class="form-floating">
+          <input type="text" id="nombreEspecialidad" class="form-control" placeholder="Nombre de la especialidad" required>
+          <label for="nombreEspecialidad">Nombre de la especialidad</label>
+        </div>
+        <div class="mt-4 d-flex justify-content-end">
+          <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+      </form>
+    </div>
 
     <!-- Tabla -->
     <div class="table-responsive">
@@ -100,27 +85,25 @@
           <tr>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Especialidad</th>
-            <th>Foto</th>
             <th>Acciones</th>
           </tr>
         </thead>
-        <tbody id="tablaMedicos"></tbody>
+        <tbody id="tablaEspecialidades"></tbody>
       </table>
     </div>
   </div>
 
-
   <script src="../assets/js/bootstrap.bundle.min.js"></script>
-  <script type="module" src="../assets/js/medicos.js"></script>
+  <script type="module" src="../assets/js/especialidadesCrud.js"></script>
   <script type="module" src="../assets/js/navbar.js"></script>
 
- <script type="module">
-  import { estaLogeado } from "../assets/js/auth.js";
-  if (!estaLogeado()) {
-    window.location.href = "/login/login.html";
-  }
-</script>
+  <!-- Redirección si no está logeado -->
+  <script type="module">
+    import { estaLogeado } from "../assets/js/auth.js";
+    if (!estaLogeado()) {
+      window.location.href = "/login/login.html";
+    }
+  </script>
 
   <script>
     const toggleButton = document.getElementById('darkModeToggle');
@@ -140,7 +123,5 @@
       }
     });
   </script>
-
-
 </body>
 </html>

@@ -10,6 +10,7 @@ INTEGRANTES:
 
 LINK REPOSITORIO: [https://github.com/4881c4s7ro/idw_59](https://github.com/4881c4s7ro/idw_59)
 LINK DEMO: [https://4881c4s7ro.github.io/idw_59/](https://4881c4s7ro.github.io/idw_59/)
+LINK VIDEO: https://youtu.be/ZEiQ3YiqZH4
 
 PROYECTO: “Clínica Salud y Vida”
 
